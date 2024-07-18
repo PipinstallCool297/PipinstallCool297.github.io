@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//notemanager.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title class="mx-auto p-2">Home - One Stop Shop - Owner View</title>
+    </head>
+    <style>
+        .body-part{
+            background-color: rgb(208, 208, 208);
+        }
+        .buttons{
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
+    <body class="body-part">
+        <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Your Shop</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <form method="post" action="/owner-home" enctype="multipart/form-data">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newModal">Add Product</button>
+                            <div class="modal fade" id="newModal" tabindex="-1" aria-labelledby="newModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="newModalLabel">Enter Product Details</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Name</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" name="productname" rows="1"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlTextarea2" class="form-label">Description</label>
+                                            <textarea class="form-control" name="productdescription" id="exampleFormControlTextarea2" rows="1"></textarea>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">$</span>
+                                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Unit Price" name="unitprice">
+                                            <span class="input-group-text">for each</span>
+                                        </div>
+                                        <div>
+                                            <input placeholder="Quantity" name="quantity">
+                                        </div>
+                                        <br>
+                                        <div class="mb-3">
+                                            <input type="file" aria-label="file example" name="productimage" required>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button name="submitbuttonfive" class="btn btn-primary" data-bs-dismiss="modal" id="submitbuttonfive" type="submit">Submit</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-success">
+                            View Cart <span class="badge text-bg-secondary">0</span>
+                        </button>
+                    </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <br>
+          <br>
+          <div class="new-product p-2 container text-center row">
+            {% for i in products %}
+            <tr>
+            <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+                <img class="card-header" name="nameCard" src='{{i["Image"]}}'></img>
+                <div class="card-body">
+                    <h5 class="card-title">{{i["Product Name"]}}</h5>
+                    <p class="card-text">{{i["Product Description"]}}</p>
+                    <p class="card-text">Home Delivery Available</p>
+                </div>
+            </div>
+        </tr>
+        {%endfor%}
+        </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+    </html>
