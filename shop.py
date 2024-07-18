@@ -26,7 +26,7 @@ def index():
     global id
     flash('')
     products=db.products.find()
-    shops=db.shop_users.find()
+    jinja2 shops =db.shop_users.find()
     if request.method=='POST':
         if 'test1' in request.form:
             print(2, request.form)
