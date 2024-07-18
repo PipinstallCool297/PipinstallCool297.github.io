@@ -20,15 +20,6 @@
         }
     </style>
     <body class="body-part">
-        <div class="messages mx-4 fs-4 w-50 rounded px-4">
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    {{ message }}
-                {% endfor %}
-            {% endif %}
-            {% endwith %}
-        </div>
         <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f8fd;">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">One Stop Shop</a>

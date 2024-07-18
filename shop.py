@@ -1,9 +1,6 @@
 from pymongo import MongoClient
 from flask import request
 import pymongo
-import random
-from passlib.hash import bcrypt_sha256
-import datetime
 import certifi
 uri="mongodb+srv://navya19mehta:_database1_@cluster0.by8g6ao.mongodb.net/?retryWrites=true&w=majority"
 client = pymongo.MongoClient(uri, tlsCAFile=certifi.where())
