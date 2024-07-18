@@ -48,7 +48,7 @@ def index():
             }
             c=id
             db.shop_users.insert_one(document)
-            return render_template('shop-home.html',shops=shops,products=products)
+            return render_template('index.html',shops=shops,products=products)
         elif 'test2' in request.form:
             loginemail=request.form['loginemail']
             loginpassword=request.form['loginpassword']
@@ -64,13 +64,13 @@ def index():
         elif 'add_to_cart' in request.form:
             p=request.form['buttoninput']
         #    print("hello")
-        #    return render_template('shop-home.html',shops=shops,products=products)
+        #    return render_template('index.html',shops=shops,products=products)
         else:
-            return render_template('shop-home.html',shops=shops,products=products)
-        #return render_template('shop-home.html',shops=shops,c=c,products=products)
+            return render_template('index.html',shops=shops,products=products)
+        #return render_template('index.html',shops=shops,c=c,products=products)
     if request.method=="GET":
         users=db.shop_users.find()
-        return render_template('shop-home.html',shops=shops,products=products)
+        return render_template('index.html',shops=shops,products=products)
 
 @app.route('/owner-home',methods=['GET','POST'])
 def owner():
